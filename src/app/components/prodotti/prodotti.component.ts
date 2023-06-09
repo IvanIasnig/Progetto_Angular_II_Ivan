@@ -50,12 +50,6 @@ export class ProdottiComponent implements OnInit {
         () => {
           console.log('Film aggiunto ai preferiti.');
         },
-        error => {
-          console.error(
-            'Errore durante l\'aggiunta del film ai preferiti.',
-            error
-          );
-        }
       );
     }
   }

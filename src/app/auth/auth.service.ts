@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, throwError } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { tap, catchError } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { AuthData } from './auth-data.interface';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -31,7 +31,6 @@ export class AuthService {
                 localStorage.setItem('user', JSON.stringify(data));
                 this.autoLogout(data);
             }),
-            catchError(this.errors)
         );
     }
 
@@ -95,12 +94,5 @@ export class AuthService {
         return null;
     }
 
-    private errors(error: any) {
-        let errorMessage = 'An unknown error occurred!';
-        if (error.error && error.error.message) {
-            errorMessage = error.error.message;
-        }
-        return throwError(errorMessage);
-    }
 }
 

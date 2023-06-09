@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
     selector: 'app-login',
@@ -17,17 +18,20 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {}
 
     accedi(form: NgForm) {
-        this.isLoading = true;
         console.log(form.value);
-        try {
-            this.authSrv.login(form.value).subscribe();
-            this.isLoading = false;
-            alert('Login effettuato!');
-            this.router.navigate(['movies']);
-        } catch (error) {
-            this.isLoading = false;
-            alert('Login sbagliato!');
+
+        this.authSrv.login(form.value).pipe(
+          catchError(error => {
             console.error(error);
-        }
-    }
+            alert('Login fallito, riprova');
+            form.reset();
+            return of(null);
+          })
+        ).subscribe(response => {
+          if (response) {
+            this.router.navigate(['/movies']);
+            alert('Login Effettuato');
+          }
+        });
+      }
 }

@@ -20,6 +20,13 @@
       "nome": "Giulio",
       "cognome": "Giulivo",
       "id": 3
+    },
+    {
+      "email": "pippo@pluto.it",
+      "password": "$2a$10$j2KFaqrkBjaXHS71DvhnV.fYBFUfTFpD11Pi7wsxrfp4S83xCzNu6",
+      "nome": "Pippo",
+      "cognome": "Pluto",
+      "id": 4
     }
   ],
   "favorites": [
@@ -62,6 +69,46 @@
       "movieId": 717192,
       "userId": 1,
       "id": 8
+    },
+    {
+      "movieId": 460465,
+      "userId": 4,
+      "id": 9
+    },
+    {
+      "movieId": 578701,
+      "userId": 4,
+      "id": 10
+    },
+    {
+      "movieId": 632357,
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "movieId": 808023,
+      "userId": 4,
+      "id": 12
+    },
+    {
+      "movieId": 399566,
+      "userId": 4,
+      "id": 13
+    },
+    {
+      "movieId": 635302,
+      "userId": 4,
+      "id": 14
+    },
+    {
+      "movieId": 791373,
+      "userId": 4,
+      "id": 15
+    },
+    {
+      "movieId": 823855,
+      "userId": 4,
+      "id": 16
     }
   ],
   "genres": [
