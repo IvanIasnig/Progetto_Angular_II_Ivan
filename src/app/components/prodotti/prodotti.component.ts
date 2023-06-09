@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class ProdottiComponent implements OnInit {
   prodotti: Prodotto[] | undefined;
+  preferiti: Prodotto[] | undefined;
 
   constructor(
     private prodottiService: ProdottiService,
@@ -22,7 +23,20 @@ export class ProdottiComponent implements OnInit {
         this.prodotti = prodotti;
       });
     }, 1000);
+
+    const userId = this.authService.getCurrentUserId();
+    if (userId) {
+      this.prodottiService.recuperaPreferiti(userId).subscribe(
+        (preferiti: Prodotto[]) => {
+          this.preferiti = preferiti;
+        },
+        (error) => {
+          console.error('Errore durante il recupero dei preferiti.', error);
+        }
+      );
+    }
   }
+
 
   aggiungiAiPreferiti(movieId: number) {
     const userId = this.authService.getCurrentUserId();

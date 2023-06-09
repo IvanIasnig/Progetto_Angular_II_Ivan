@@ -1,43 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center sticky-top">
-    <a class="navbar-brand" href="#">Movies</a>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top flex-column align-items-center">
+    <h4>Film preferiti:</h4>
+    <div *ngIf="preferiti?.length; else noFavorites">
+        <div *ngFor="let preferito of preferiti" class="w-100 text-center text-primary">{{ preferito.title }}</div>
+    </div>
+    <ng-template #noFavorites>
+        <div class="w-100 text-center">Ancora nessun film preferito </div>
+    </ng-template>
+</nav>
+
 <div class="container-fluid mt-3">
     <div class="row">
-        <div
-            class="col-lg-3 col-md-4 col-sm-6"
-            *ngFor="let prodotto of prodotti"
-        >
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prodotto of prodotti">
             <div class="card m-2">
                 <img
                     class="card-img-top"
-                    src="https://image.tmdb.org/t/p/w500{{
-                        prodotto.poster_path
-                    }}"
+                    src="https://image.tmdb.org/t/p/w500{{ prodotto.poster_path }}"
                     alt="{{ prodotto.title }}"
                 />
                 <div class="card-body">
                     <h5 class="card-title">{{ prodotto.title }}</h5>
                     <p class="card-text font">
-                        <strong class="text-secondary">Popolarità:</strong>
-                        {{ prodotto.popularity }}<br />
-                        <strong class="text-secondary">Voto:</strong>
-                        {{ prodotto.vote_average }}<br />
-                        <strong class="text-secondary">Conteggio voti:</strong>
-                        {{ prodotto.vote_count }}<br />
-                        <strong class="text-secondary"
-                            >Lingua originale:</strong
-                        >
-                        {{ prodotto.original_language }}<br />
-                        <strong class="text-secondary">Data di uscita:</strong>
-                        {{ prodotto.release_date }}<br />
-                        <strong class="text-secondary">Per adulti:</strong>
-                        {{ prodotto.adult ? "Sì" : "No" }}<br />
-                        <strong class="text-secondary"
-                            >Titolo originale:</strong
-                        >
-                        {{ prodotto.original_title }}<br />
-                        <strong class="text-secondary">Video:</strong>
-                        {{ prodotto.video ? "Sì" : "No" }}
+                        <strong class="text-secondary">Popolarità:</strong> {{ prodotto.popularity }}<br />
+                        <strong class="text-secondary">Voto:</strong> {{ prodotto.vote_average }}<br />
+                        <strong class="text-secondary">Conteggio voti:</strong> {{ prodotto.vote_count }}<br />
+                        <strong class="text-secondary">Lingua originale:</strong> {{ prodotto.original_language }}<br />
+                        <strong class="text-secondary">Data di uscita:</strong> {{ prodotto.release_date }}<br />
+                        <strong class="text-secondary">Titolo originale:</strong> {{ prodotto.original_title }}<br />
                     </p>
                     <button
                         class="btn btn-outline-danger border-0"
