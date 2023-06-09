@@ -13,23 +13,20 @@
       "nome": "Giulio",
       "cognome": "Ciao",
       "id": 2
+    },
+    {
+      "email": "giulio@gmail.com",
+      "password": "$2a$10$zS/u2mMQxYNG21LB4mBhKe.ez3GqLJVdbbusvb9JRLZr4akpwiNzu",
+      "nome": "Giulio",
+      "cognome": "Giulivo",
+      "id": 3
     }
   ],
   "favorites": [
     {
-      "movieId": 578701,
+      "movieId": 460465,
       "userId": 1,
-      "id": 4
-    },
-    {
-      "movieId": 578701,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "movieId": 632357,
-      "userId": 1,
-      "id": 6
+      "id": 1
     }
   ],
   "genres": [
