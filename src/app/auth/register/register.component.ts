@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
             this.authSrv.signup(form.value).subscribe();
             this.router.navigate(['/login']);
             this.isLoading = false
-        } catch (error: any) { // Cast error to any type
+        } catch (error: any) {
             console.error(error);
             if (error.status == 400) {
                 alert('Email già registrata!');

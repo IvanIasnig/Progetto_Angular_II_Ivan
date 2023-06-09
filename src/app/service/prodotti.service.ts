@@ -48,14 +48,4 @@ export class ProdottiService {
         );
         return this.http.post(url, { movieId, userId }, { headers });
     }
-
-    rimuoviDaiPreferiti(id: number) {
-        const url = `${this.baseURL}favorites/${id}`;
-        const token = this.authService.getToken();
-        const headers = new HttpHeaders().set(
-            'Authorization',
-            `Bearer ${token}`
-        );
-        return this.http.delete(url, { headers });
-    }
 }
