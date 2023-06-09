@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prodotto of prodotti">
+            <div class="card m-2">
+                <img class="card-img-top "
+                    src="https://image.tmdb.org/t/p/w500{{ prodotto.poster_path }}"
+                    alt="{{ prodotto.title }}"
+                />
+                <div class="card-body">
+                    <h5 class="card-title">{{ prodotto.title }}</h5>
+                    <p class="card-text font">
+                        <strong class="text-secondary ">Popolarità:</strong> {{ prodotto.popularity }}<br />
+                        <strong class="text-secondary ">Voto:</strong> {{ prodotto.vote_average }}<br />
+                        <strong class="text-secondary ">Conteggio voti:</strong> {{ prodotto.vote_count }}<br />
+                        <strong class="text-secondary ">Lingua originale:</strong> {{ prodotto.original_language }}<br />
+                        <strong class="text-secondary ">Data di uscita:</strong> {{ prodotto.release_date }}<br />
+                        <strong class="text-secondary ">Per adulti:</strong> {{ prodotto.adult ? 'Sì' : 'No' }}<br />
+                        <strong class="text-secondary ">Titolo originale:</strong> {{ prodotto.original_title }}<br />
+                        <strong class="text-secondary ">Video:</strong> {{ prodotto.video ? 'Sì' : 'No' }}
+                    </p>
+                    <button class="btn btn-outline-danger border-0" (click)="aggiungiAiPreferiti(prodotto.id)">
+                        <i class="fa fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
